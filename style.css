@@ -1,23 +1,471 @@
-body {
-  background-color: #f0f8ff; /* 淡藍色背景 */
-  font-family: Arial, sans-serif;
+   @font-face {
+  font-family: "jfOpenHuninn";
+  src: url("https://miaoni.neocities.org/fonts/jf-openhuninn-21.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+ }
+ 
+    body {
+      font-size: 8.5pt;
+      font-family: 'Calibri','jfOpenHuninn', sans-serif;
+      color: #999999;
+      letter-spacing: 1.2pt;     
+      line-height: 230%;
+      scroll-behavior: smooth;
+}
+    
+.tag {
+  display: inline-block;   /* 讓 padding + 圓角好看 */
+  padding: 2px 8px;        /* 內距 */
+  border-radius: 12px;     /* 圓角可愛感 */
+  font-size: 0.9em;        /* 字體微縮小更精緻 */
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.tag-pink {
+  background-color: #FFF0F4; /* 淡粉色背景 */
+  color: #F0799B;            /* 深一點的粉紅字 */
+}
+
+.tag-yellow {
+  background-color: #fff6c4; /* 淡黃色背景 */
+  color: #8a6d00;            /* 黃系字色 */
+}
+
+.tag-gray {
+  background-color: #f9f9f9; /* 淡灰底 */
+  color: #999999;            /* 灰字 */
+}
+
+::selection {
+  background-color: #fff0f0 !important; /* 反白 */
+  color: #f393a9;
+  text-shadow:
+   0  0 1px white,
+  -1px -1px 0 white,
+   1px -1px 0 white,
+  -1px  1px 0 white,
+   1px  1px 0 white,
+  -2px  0 0 white,
+   2px  0 0 white,
+   0  -2px 0 white,
+   0   2px 0 white;
+}
+
+a:link {
+  color: #999999;
+  font-family: 'jfOpenHuninn';
+  text-decoration: none;
+  text-shadow:
+   0  0 1px white,
+  -1px -1px 0 white,
+   1px -1px 0 white,
+  -1px  1px 0 white,
+   1px  1px 0 white,
+  -2px  0 0 white,
+   2px  0 0 white,
+   0  -2px 0 white,
+   0   2px 0 white;
+}
+
+a:visited {
+  color: #818181;
+}
+
+a:hover {
+  color: #999999;
+  position: relative;
+  top: 1px;
+  left: 1px;
+  text-decoration: none;
+  text-shadow: 1px 1px 1px #f4f4f4;
+}
+
+* {
+  cursor: url(https://cur.cursors-4u.net/cursors/cur-9/cur817.cur), auto;
+}
+    
+  .mark.yellow {
+	    background: linear-gradient(transparent 40%,rgba(255,255,255,0) 40%, #FFE174 90%,transparent 95%);	
+      padding: 2px 1px;
+      color: #999999;
+}
+  .mark.green {
+	    background:linear-gradient(transparent 40%,rgba(255,255,255,0) 40%, #CCFF90 50%,transparent 70%);	
+      padding: 2px 1px;
+      color: #838383;
+}
+  .mark.red {
+	    border-bottom: 3px solid #EC7A8E;
+	    background: none;
+	    margin: 0 -2px;
+	    padding: 0 2px;
+	    color: #999999;
+  }
+
+/* 左側浮動選單 */
+.sidemenu {
+  position: fixed;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  padding: 8px 0;
+  z-index: 999;
+  overflow: hidden;           /* 限制 hover 背景不超出 */
+  width: 50px;                /* 預設只有圖示寬度 */
+  transition: width 0.3s ease;
+}
+
+.sidemenu:hover {
+  width: 180px;               /* 滑過去才展開顯示文字 */
+}
+
+/* 選單連結 */
+.sidemenu a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  text-decoration: none;
+  color: #999999;
+  font-size: 13px;
+  border-left: 3px solid transparent;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  position: relative;         /* 用來控制下壓效果 */
+}
+
+/* 文字淡入 */
+.sidemenu a span {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sidemenu:hover a span {
+  opacity: 1;
+}
+
+/* Hover 效果：文字右移 + 下壓 + 背景顏色 */
+.sidemenu a:hover {
+  background: #fff0f0;        /* 背景不超出 */
+  color: #FFAD33;
+  transform: translate(5px, 2px);  /* 右移 5px，下壓 2px */
+}
+
+/* 當前區塊高亮 */
+.sidemenu a.active {
+  background: #FFDEDE;
+  color: #F0799B;
+  font-weight: bold;
+  border-left: 3px solid #F08AA5;
+}
+
+/* note */
+.note {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 400px;
+  padding: 20px 30px;
+  background: #FFF0F4;
+  border-radius: 10px;
+  box-shadow: 2px 4px 8px rgba(0,0,0,0.1);
+  font-family: 'Comic Sans MS','jfOpenHuninn', sans-serif;
+  font-size: 12.3px;
+  z-index: 9999;
+  transition: all 0.6s ease;
+  opacity: 1;
+}
+
+.note h3 {
+      font-size: 13pt;
+      color: #a2a2a2;
+      text-align: center;
+      text-shadow:
+      0  0 1px white,
+      -1px -1px 0 white,
+      1px -1px 0 white,
+      -1px  1px 0 white,
+      1px  1px 0 white,
+      -2px  0 0 white,
+      2px  0 0 white,
+      0  -2px 0 white,
+      0   2px 0 white;
+      letter-spacing: 13pt;
+    }
+ 
+    /* 模擬上方膠帶 */
+    .note::before,
+    .note::after {
+      content: "";
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 30px;
+      background: rgba(255, 200, 0, 0.1); /* 橙黃色 */
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    /* 當某個 section 被打開時 note 收起 */
+section:target ~ .note {
+  opacity: 0;
+  transform: translate(-50%, -60%); /* 往上淡出 */
+  pointer-events: none;
+}
+
+/* section 預設隱藏 */
+.content-section {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.6s ease;
+  margin-bottom: 40px;
+  padding: 0 30px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* 點擊錨點展開 */
+.content-section:target {
+  max-height: 1000px;
+  opacity: 1;
+  padding: 30px;
+}
+
+/* 內容區域 */
+.content {
+  max-width: 570px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+/* section 預設隱藏 */
+section {
+  margin-bottom: 20px;
+  padding: 30px;
+  background: #fff;
+  border: 1px solid #f1f1f1;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  max-height: 0;
+  overflow: auto;
+  opacity: 0;
+  transition: all 0.6s ease;
+  font-size: 12.5px;
+}
+
+/* 點擊錨點展開 */
+section:target {
+  max-height: 1000px; /* 依實際內容調整 */
+  opacity: 1;
+  padding: 30px; /* 顯示時恢復原 padding */
+}
+
+section h2 {
+  margin-top: 0;
+  color: #F08AA5;
+  border-bottom: 1px solid #d9d9d9;
+  padding-bottom: 8px;
   text-align: center;
-  margin-top: 50px;
 }
 
-h1 {
-  color: #ff4500; /* 橘紅色標題 */
+/* 程式碼區塊美化 */
+ pre code.hljs {
+  margin-top:20px;
+  margin-bottom:20px;
+  background: #f9f9f9 !important;
+  text-shadow: none;
+  font-family: Consolas, "Calibri", monospace;
+  color: #888888 !important;
+  font-size: 10.5px;
+  line-height: 1.6;
+  border-radius: 12px;
+  display: block;        /* 確保可以設定寬高 */
+  width: 490px;          /* 固定寬度 */
+  max-width: 100%;       /* 避免超出父容器 */
+  box-sizing: border-box;/
+  padding: 30px;
+  max-height: 230px;
+  overflow: auto;
 }
 
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #008080;
-  color: white;
+* Prism.js token 配色 */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #999999 !important;
+  font-style: italic !important;
+}
+
+.token.punctuation {
+  color: #cfcfcf !important;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.keyword {
+  color: #E3A3B9 !important;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #D0B7D9 !important;
+}
+
+.token.function {
+  color: #c9a7d4 !important;
+}
+
+.token.number {
+  color: #e9a9bd !important;
+}
+
+/* highlight.js 對應 class 配色 */
+.hljs-comment,
+.hljs-quote {
+  color: #CCA9B5 !important;
+  font-style: italic !important;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst {
+  color: #E89B97 !important;
+}
+
+.hljs-string,
+.hljs-title,
+.hljs-name,
+.hljs-type,
+.hljs-attr {
+  color: #C9AAD6 !important;
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-symbol,
+.hljs-bullet {
+  color: #E39CAF !important;
+}
+
+.hljs-built_in {
+  color: #86B856 !important; 
+}
+
+.hljs-function {
+  color: #c9a7d4 !important;
+}
+
+/* 行號粉嫩化 (如果有啟用 line-numbers) */
+pre.line-numbers {
+  position: relative;
+  padding-left: 3.2em !important;
+}
+
+.line-numbers .line-numbers-rows {
+  border-right: 1px solid #f3dce5 !important;
+  background: #fefbfc !important;
+}
+
+.line-numbers-rows > span:before {
+  color: #e2a6b8 !important;
+}
+
+/* 錨點點擊展開多個 section */
+section.active {
+  margin-bottom: 70px; /* 展開後的距離 */
+  max-height: 1000px;  /* 依實際內容可調整 */
+  opacity: 1;
+  padding: 30px;       /* 顯示時恢復原 padding */
+  transition: all 0.6s ease;
+}
+
+.pre-copy-wrapper {
+  position: relative;
+}
+
+.pre-copy-wrapper button.copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #ffb6c1; /* 可愛粉色 */
   border: none;
+  border-radius: 12px;
+  padding: 4px 10px;
+  font-size: 10px;
   cursor: pointer;
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: background 0.2s, transform 0.2s;
 }
 
-button:hover {
-  background-color: #20b2aa;
+/* hover 動畫 */
+.pre-copy-wrapper button.copy-btn:hover {
+  background: #ff99b3;
+  transform: scale(1.08);
+}
+
+/* 卷軸 */
+
+/* Webkit 瀏覽器 (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 8px;
+  background: #fff; /* 軌道 */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1 /* 軌道 */
+  border-radius: 10px;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;              /* 較細滑條 */
+  scrollbar-color: #f1f1f1 #fff;   /* 滑塊顏色 軌道顏色 */
+}
+
+/* ------------------------- */
+/* 程式碼區塊橫向卷軸美化 */
+/* ------------------------- */
+pre code.hljs {
+  overflow-x: auto;
+}
+
+pre code.hljs::-webkit-scrollbar {
+  height: 6px;
+}
+
+pre code.hljs::-webkit-scrollbar-thumb {
+  background: #f1f1f1;
+}
+
+pre code.hljs::-webkit-scrollbar-track {
+  background: #ffffff;
 }
