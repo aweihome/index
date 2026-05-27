@@ -1,0 +1,23 @@
+body {
+  background-color: #f0f8ff; /* 淡藍色背景 */
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 50px;
+}
+
+h1 {
+  color: #ff4500; /* 橘紅色標題 */
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #008080;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #20b2aa;
+}
