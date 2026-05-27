@@ -10,8 +10,1098 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>哈囉，這是我的網站！</h1>
-  <button id="myButton">點我一下</button>
+
+<!-- 左側浮動選單 -->
+  <div class="sidemenu">
+    <a href="#1">📝 <span>留言板美化區</span></a>
+    <a href="#2">🖍️ <span>標記文字畫線效果</span></a>
+    <a href="#3">🌠️ <span>線性漸層背景</span></a>
+    <a href="#4">🎵 <span>YT音樂播放按鈕</span></a>
+    <a href="#5">🗳️ <span>按鈕式移動小彈窗</span></a>
+  </div>
+  
+
+  <!-- 主體內容 -->
+  <div class="content">
+  <section id="1" data-group="1">
+      <h2>留言內容主體調整與美化</h2>
+          將下方程式碼貼於：<span class="tag tag-pink">CSS</span><p>
+          表格圓角與透明化　 <img style="vertical-align: middle;" src="enews_pic/1111_5.png" width="220px"> 數字填入width""
+
+          <pre><code class="hljs">/* 留言表格 */
+table[width="你的樣式表格寬度"][cellspacing="1"] {
+  border-collapse: separate;
+  border-radius: 15px;                      /* 圓角度 */
+  overflow: hidden;
+  background: #f4f4f4;                     /* 邊框色 */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); /* 陰影 */
+  margin-bottom: 35px;                  /* 留言框外間距 */
+  opacity: 0.7;                        /* 透明效果0.1~0.9 */
+  transition: opacity 0.6s ease;      /* 過渡延遲效果 */
+}
+
+/* 游標移入不透明 */
+table[width="420"][cellspacing="1"]:hover {
+   opacity: 1;
+}
+</code></pre>
+
+<p>底部頁數顯示樣　　<img style="vertical-align: middle;" src="enews_pic/145.png" width="200px"></p>
+      <pre><code class="hljs">/* 頁數邊框色 */
+table[bgcolor="000000"] {
+  background-color: #fff !important;
+  border-radius: 25px;    /* 圓角度 */
+}
+
+/* 頁數字型大小 */
+table[bgcolor="000000"] th {
+  background-color: #fff;  /* 頁數背景色 */
+  border-radius: 25px;
+  font-size: 7pt;
+  font-family: Calibri;
+}
+
+/* 游標移入頁數背景色 */
+table[bgcolor="000000"] th[bgcolor="e2e8f3"]:hover {
+  background-color: #fff !important;
+}
+</code></pre>
+
+替換小房子與新留言圖示間距<p>
+<pre><code class="hljs">/* 換小房子圖 */
+td img[src="ttp://images.kikia.net/images/url.gif"] {
+content: url("新圖");
+width: 16px; /* 依實際大小調整 */
+height: auto;
+vertical-align: middle;
+}
+/* 新留言圖示間距 */
+td img[src$="檔名.gif"] {
+margin-left: 10px;
+vertical-align: middle;
+}
+</code></pre>
+
+<p><label><input type="checkbox" style="display:none;" onclick="content1.style.display = this.checked ? 'block' : 'none'">
+首篇留言區塊內距 範例</label></p>
+  <div id="content1" style="display:none; text-align:center;"><img src="enews_pic/1111_1.png" width="400px"></div>
+<pre><code class="hljs">/* 首篇留言 */
+td[height="50"][valign="top"] {
+  padding-top:15px;     /* 與上方暱稱距離 */
+  padding-right: 30px; /* 與右邊框間距 */
+}
+</code></pre>
+
+<p><label><input type="checkbox" style="display:none;" onclick="content2.style.display = this.checked ? 'block' : 'none'">
+回應留言區塊邊距 (防文字貼邊) 範例</label></p>
+  <div id="content2" style="display:none; text-align:center;"><img src="enews_pic/1111_4.png" width="400px"></div>
+      <pre><code class="hljs">/* 回應留言區塊 */
+td[colspan="3"][height="20"] {
+  padding-top:10px;      /* 與上方暱稱距離 */
+  padding-right: 30px;   /* 與右邊框間距 */
+}
+</code></pre>
+
+<p><label><input type="checkbox" style="display:none;" onclick="content3.style.display = this.checked ? 'block' : 'none'">
+留言區塊左側空間縮減 範例</label></p>
+  <div id="content3" style="display:none; text-align:center;"><img src="enews_pic/1111_2.png" width="400px"></div>
+<pre><code class="hljs">/* 縮減左側寬度  */
+td[rowspan="2"][width="80"][height="80"][align="center"][valign="bottom"] {
+  width: 50px !important;  /* 改成你要的寬度 */
+}
+</code></pre>
+
+<p><label><input type="checkbox" style="display:none;" onclick="content5.style.display = this.checked ? 'block' : 'none'">
+留言時間顯示樣+游標靠近轉變深色 範例</label></p>
+  <div id="content5" style="display:none;  text-align:center;"><img src="enews_pic/1114.png" width="360px"></div>
+<pre><code class="hljs">/* 日期時間  */
+td[colspan="3"][align="right"],
+div[align="right"] {
+  padding-top:15px;       /* 與上方留言距離 */
+  padding-right: 15px;    /* 與右邊框距 */
+  padding-bottom:10px;    /* 與下方距離 */
+  font-family: Calibri;   /* 字型 */
+  font-size: 7.6pt;       /* 數字大小 */
+  color: #e5e5e5;         /* 淺色字 */
+  transition: color 0.5s ease; /* 過渡延遲效果 */
+}
+
+/* 游標移入換色 */
+td[colspan="3"][align="right"]:hover,
+div[align="right"]:hover {
+  color: #999999;
+}
+</code></pre>
+
+<p><label><input type="checkbox" style="display:none;" onclick="content4.style.display = this.checked ? 'block' : 'none'">
+留言區塊文字行距 範例</label></p>
+  <div id="content4" style="display:none; text-align:center;"><img src="enews_pic/1111_3.png" width="400px"></div>
+<pre><code class="hljs">/* 留言行距 */
+font {
+  line-height: 25px;
+}
+</code></pre></section>
+
+
+
+
+        <section id="1b" data-group="1">
+       <h2>文字網址轉換超連結</h2>
+          <label><input type="checkbox" style="display:none;" onclick="content6.style.display = this.checked ? 'block' : 'none'">
+將下方程式碼貼於：<span class="tag tag-pink">版面配置</span>。　　範例</label>
+  <div id="content6" style="display:none; text-align:center;"><br><img src="enews_pic/1113.png" width="410px"></div> 
+      <pre><code class="hljs">&lt;!-- 文字網址轉換連結 --&gt;
+&lt;script&gt;      
+(function () {
+  function linkifyText(text) {
+    const frag = document.createDocumentFragment();
+    const parts = text.split(/(https?:\/\/[a-zA-Z0-9./?=&_%#-]+)/);
+    parts.forEach(part => {
+      if (!part) return;
+      if (/^https?:\/\//.test(part)) {
+        const a = document.createElement("a");
+        a.href = part;
+        a.target = "_blank";
+        a.style.color = "#FA9AB2";
+        a.style.textDecoration = "none";
+        a.innerHTML =
+          "連結文字&lt;img style=\"vertical-align: middle\" src=\"圖檔\"&gt;";
+        frag.appendChild(a);
+      } else {
+        frag.appendChild(document.createTextNode(part));
+      }
+    });
+    return frag;
+  }
+
+  // 對一個元素處理所有文字節點
+  function linkifyContent(el) {
+    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+    const textNodes = [];
+    let node;
+    while ((node = walker.nextNode())) {
+      textNodes.push(node);
+    }
+    textNodes.forEach(node => {
+      if (/https?:\/\//.test(node.nodeValue)) {
+        const frag = linkifyText(node.nodeValue);
+        node.replaceWith(frag);
+      }
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("font").forEach(el => linkifyContent(el));
+  });
+})();
+&lt;/script&gt;</code></pre>
+  ✏️保留原網址<br>
+  <div style="padding-left:20px; border-bottom:1px dashed #d5d5d5; margin:0 10px; line-height:2;">
+將連結顯示文字改為 <font color="#C2ACD3">${url}</font> 即可保留原網址為超連結。</div></section>
+
+
+
+
+ <section id="1c" data-group="1">
+       <h2>♂♀轉換留言專屬圖</h2>
+          <label><input type="checkbox" style="display:none;" onclick="content7.style.display = this.checked ? 'block' : 'none'">
+將下方程式碼貼於：<span class="tag tag-pink">版面配置</span> > <span class="tag tag-pink">留言板下方</span>。　　範例</label>
+  <div id="content7" style="display:none;  text-align:center;"><p><img src="enews_pic/1112.png" width="330px"></div>
+      <pre><code class="hljs">&lt;!-- 轉換專屬圖 --&gt;
+&lt;script&gt;
+function processNameNode(node) {
+  const text = node.nodeValue;
+  if (!text || !text.trim()) return;
+
+  let span = document.createElement("span");
+
+  if (/^[♂♀]名稱A/.test(text)) {
+    span.innerHTML =
+      '&lt;img src="圖示1" style="width:20px;vertical-align:middle;"&gt; 名稱A';
+  } else if (/^[♂♀]名稱B/.test(text)) {
+    span.innerHTML =
+      '&lt;img src="圖示2" style="width:20px;vertical-align:middle;"&gt; 名稱B';
+  } else if (/^[♂♀]名稱C/.test(text)) {
+    span.innerHTML =
+      '&lt;img src="圖示3" style="width:20px;vertical-align:middle;"&gt; 名稱C';
+  } else if (/^[♂♀]/.test(text)) {
+    const rest = text.replace(/^[♂♀]/, "").trim();
+    span.innerHTML =
+      '&lt;img src="一般訪客圖示" style="width:20px;vertical-align:middle;"&gt; ' + rest;
+  } else {
+    return; // 不是以♂♀開頭就不處理
+  }
+
+  node.replaceWith(span);
+}
+
+function processNames(el) {
+  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+  const textNodes = [];
+  let node;
+  while ((node = walker.nextNode())) {
+    textNodes.push(node);
+  }
+  textNodes.forEach(processNameNode);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll("font").forEach(el => processNames(el));
+});
+&lt;/script&gt;</code></pre>
+
+ ✏️使用方法<br>
+  <div style="padding-left:20px; border-bottom:1px dashed #d5d5d5; margin:0 10px; line-height:2;">
+  <font color="#9A5B58">名稱A</font> 改成自己的留言名稱。</div>
+  <div style="padding-left:20px; border-bottom:1px dashed #d5d5d5; margin:0 10px; line-height:2;">
+  <font color="#9A5B58">名稱B</font> 設置第二位留言者專屬圖樣。設置多位,比照同段函式以此類推</div></section>
+  
+
+
+
+ <section id="1d" data-group="1">
+       <h2>替換下課時間留言按鈕圖示</h2>
+  
+  <div style="text-align:center;"><img style="vertical-align: middle;" src="enews_pic/1117.png" width="150px"></div>     
+  <p><label>
+  <input type="checkbox" style="display:none;" onclick="content8.style.display = this.checked ? 'block' : 'none'">
+   ⭐文字按鈕版</label>
+   <div id="content8" style="display:none;">
+       將下方程式碼貼於：<span class="tag tag-pink">CSS語法</span><p>
+        
+       <pre><code class="hljs">/* 1. 替換訪客回應按鈕 */
+a[href*="aft=re"] img[src*="re.gif"] {
+  display: none;              /* 隱藏原本圖片 */
+}
+a[href*="aft=re"]::after {
+  content: "訪客回應";
+  display: inline-block;
+  color: #999;                /* 字色 */
+  background-color: #f4f4f4;  /* 背景色 */
+  padding: 5px 5px;           /* 上下+左右內距 */
+  border-radius: 5px;         /* 圓角度 */
+  font-family: Verdana;       /* 字型 */
+  margin:0px 6px;             /* 上下+左右外距 */
+  margin-bottom:15px;         /* 加強下方間距 */
+}
+
+/* 2. 替換觀看密語按鈕 */
+a[href^="javascript:look"] img[src*="look.gif"] {
+  display: none;
+}
+a[href^="javascript:look"]::after {
+  content: "觀看密語";
+  display: inline-block;
+  color: #999;
+  background-color: #f4f4f4;
+  padding: 5px;
+  border-radius: 5px;
+  text-decoration: none;      /* 取消連結下劃線 */
+  font-family: Verdana;
+  margin:0px 6px;
+  margin-bottom:15px;
+}
+
+/* 3. 替換回留言板按鈕 */
+a[href="/book.php?A=留言板帳號"] img[src*="back.gif"] {
+  display: none;
+}
+a[href="/book.php?A=留言板帳號"]::after {
+  content: "回留言板";
+  display: inline-block;
+  color: #999;
+  background-color: #f4f4f4;
+  padding: 5px;
+  border-radius: 5px;
+  font-family: Verdana;
+  margin:0px 6px;
+  margin-bottom:15px;
+}
+</code></pre>
+       
+       
+      <p>下方script程式碼貼於：<span class="tag tag-pink">版面配置</span> > <span class="tag tag-pink">留言板下方</span></p>
+      <pre><code class="hljs">&lt;!-- 4.替換等待&回應滿按鈕 --&gt;
+&lt;script&gt;
+const replacements = {
+  "wait.gif": "等待回覆",
+  "over.gif": "回應滿囉"
+};
+
+Object.entries(replacements).forEach(([filename, text]) => {
+  document.querySelectorAll(`img[src*='${filename}']`).forEach(img => {
+    const span = document.createElement("span");
+    span.textContent = text;
+    span.style.color = "#999";
+    span.style.fontStyle = "Verdana";
+    span.style.padding = "6px";
+    span.style.backgroundColor = "#f4f4f4";
+    span.style.borderRadius = "5px";
+    span.style.margin = "5px";
+    span.style.marginBottom = "15px";
+    span.style.marginRight  = "10px";
+    span.style.display = "inline-block";
+    img.replaceWith(span);
+  });
+});
+&lt;/script&gt;</code></pre> </div><p>
+
+  <label>
+  <input type="checkbox" style="display:none;" onclick="content9.style.display = this.checked ? 'block' : 'none'">
+   ⭐更換圖示版</label><p>
+<div id="content9" style="display:none;">
+<p>下方程式碼貼於：<span class="tag tag-pink">CSS</span></p>
+      <pre><code class="hljs">/* 1. 替換訪客回應圖示 */
+a[href*="aft=re"] img[src*="re.gif"] {
+  display: none;
+}
+a[href*="aft=re"]::after {
+  content: url("新圖路徑");
+  display: inline-block;
+  margin: 6px 10px;
+}
+
+/* 2. 替換觀看密語圖示 */
+a[href^="javascript:look"] img[src*="look.gif"] {
+  display: none;
+}
+a[href^="javascript:look"]::after {
+  content: url("新圖路徑");
+  display: inline-block;
+  margin:  6px 10px;
+}
+
+/* 3. 替換回留言板圖示 */
+a[href="/book.php?A=留言板帳號"] img[src*="back.gif"] {
+  display: none;
+}
+a[href="/book.php?A=留言板帳號"]::after {
+  content: url("新圖路徑");
+  display: inline-block;
+  margin: 6px 10px;
+}
+
+/* 以下語法除Firefox瀏覽器不支援,亦可選用js換圖法 */
+/* 4. 替換等待回覆&留言已滿圖示 */
+img[src*="wait.gif"],
+img[src*="over.gif"] {
+  display: none;
+}
+
+/* 替換等待回應圖示  */
+td:has(> img[src*="wait.gif"])::after {
+  content: url("新圖路徑");
+  display: inline-block;
+  margin: 6px 10px;
+}
+
+/* 替換留言已滿圖示 */
+td:has(> img[src*="over.gif"])::after {
+  content: url("新圖路徑");
+  display: inline-block;
+  margin: 6px 10px;
+}
+</code></pre>
+
+     <p>⚠️替換<span class="mark green">等待回覆與留言已滿的CSS受限瀏覽器</span>，以下JS保險換圖法供擇一選用。</p>
+     <p>下方script請貼於：<span class="tag tag-pink">版面配置</span> > <span class="tag tag-pink">留言板下方</span></p>
+      <pre><code class="hljs">&lt;!-- 4.替換等待&回應滿圖檔 --&gt;
+&lt;script&gt;
+const replacements = {
+  "wait.gif": "新等待回覆圖徑",
+  "over.gif": "新回應已滿圖徑"
+};
+
+// 遍歷對照表
+Object.entries(replacements).forEach(([filename, newSrc]) => {
+  document.querySelectorAll(`img[src*='${filename}']`).forEach(img => {
+    const newImg = document.createElement("img");
+    newImg.src = newSrc;
+    newImg.style.margin = "6px 10px";   /* 上下+左右外距  */
+    img.parentNode.replaceChild(newImg, img);
+  });
+});
+&lt;/script&gt;
+</code></pre> </div> </section>
+
+
+
+   
+       <section id="1e" data-group="1">
+      <h2>回應留言輸入欄美化與隱藏</h2>
+         <label><input type="checkbox" style="display:none;" onclick="content10.style.display = this.checked ? 'block' : 'none'">
+將下方程式碼貼於：<span class="tag tag-pink">CSS語法</span>。　　範例</label>
+  <div id="content10" style="display:none; text-align:center;"><p><img src="enews_pic/1115.png" width="340px"></div>
+      <pre><code class="hljs">/* 簽寫區其他輸入欄 */
+input,
+select {
+  background-color: #fff;     /* 背景顏色 */
+  border: 0;                 /* 邊框樣式 */
+  outline: none;
+}
+
+/* 留言性質邊框 */
+select[name="hsu"] {   
+  background-color: #f9f9f9;
+  border: 1px dotted #d1d1d1;
+  padding: 1px; 
+  border-radius: 8px;
+}
+
+/* 留言輸入欄 */
+textarea[name="mess"] {
+  color: #898989 !important;              /* 文字固定字色 */
+  letter-spacing: 1.3pt;                  /* 文字間距 */
+  margin: 5px 0px;                        /* 輸入欄外距 */
+ background:
+  linear-gradient(#f9f9f9b3, #f9f9f9b3),  /* 8位元透明背景色(見下方一覽) */
+  url("背景圖") no-repeat right bottom;
+  background-color: #f9f9f9;              /*  背景色 */
+  background-size: 153px auto;            /* 調整背景圖大小 */
+  border: 3px solid #fff;                 /* 邊框樣式 */
+  border-radius: 8px;                     /* 圓角度 */
+  width: 340px;                           /* 輸入欄寬 */
+  height: 160px;                          /* 輸入欄高 */
+  padding: 6px 10px;                      /* 上下+左右內距 */
+  outline: none;                          
+  box-sizing: border-box;  
+}
+
+/* 暱稱+站名+網址欄 */
+input[name="name"],
+input[name="urlname"],
+input[name="url"] {
+  background-color: #f9f9f9;
+  border: 3px solid #fff;
+  border-radius: 5px;
+  outline: none;
+  box-sizing: border-box;
+  padding: 6px 10px;
+  margin-top: 1px;
+  width: 130px;
+  height: 27px;
+}
+
+/* 驗證碼+悄話密碼 */
+input[name="hsupass"],
+input[name="authinput"] {
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  padding: 7px;
+  width: 60px;
+  height: 25px;
+  border: 3px solid #fff;
+}
+
+/* 送出+重寫+回上頁按鈕 */
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  background-color: #f7f7f7;  /* 按鈕背景色 */
+  color: #888;               /* 文字顏色 */
+  text-shadow:
+   0  0 1px white,
+  -1px -1px 0 white,
+   1px -1px 0 white,
+  -1px  1px 0 white,
+   1px  1px 0 white,
+  -2px  0 0 white,
+   2px  0 0 white,
+   0  -2px 0 white,
+   0   2px 0 white;
+  border: none;            /* 去除框線 */
+  border-radius: 8px;     /* 圓角度 */
+  padding: 4px 12px;     /* 上下+左右內距 */
+  font-size: 12px;      /* 文字大小 */
+  cursor: pointer;     /* 手指型游標 */
+  transition: background 0.3s, transform 0.2s;  /* 動畫平滑效果 */
+  margin: 5px 10px;   /* 外間距 */
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover {
+  background-color: #f1f1f1;
+  transform: translateY(-1px);
+}
+
+input[type="submit"]:active,
+input[type="reset"]:active,
+input[type="button"]:active {
+  transform: translateY(1px);
+  box-shadow: inset 0 0 3px rgba(0,0,0,0.2);
+}
+</code></pre>
+
+          <p>將下方Script貼於：<span class="tag tag-pink">版面配置</span> > <span class="tag tag-pink">留言板下方</span></p>
+      <pre><code class="hljs">&lt;!-- 隱藏不要的欄位 --&gt;
+&lt;script&gt;
+document.addEventListener('DOMContentLoaded', function() {
+  // 隱藏欄位
+  const hideSelectors = [
+    'select[name="sex"]',       // 性別
+    'input[name="user"]',       // 好友密碼
+    'select[name="color"]',     // 回應字色
+    'input[name="email"]',      // 電子郵件
+    'input[name="icq"]',        // ICQ
+    'input[name="msn"]',        // MSN
+    'input[name="yahoo"]'       // 即時通
+  ];
+
+  document.querySelectorAll(hideSelectors.join(',')).forEach(el => {
+    const td = el.closest('td');
+    if (!td) return;
+
+    td.style.display = 'none';
+    const prev = td.previousElementSibling;
+    if (prev && prev.tagName.toLowerCase() === 'td') {
+      prev.style.display = 'none';
+    }
+  });
+});
+&lt;/script&gt;</code></pre>
+
+ ✏️線條樣式<br>
+      <div style="padding-left:20px; border-bottom:1px dashed #d5d5d5; margin:0 10px; line-height:2;">
+style.border順序: <font color="#F0A0A0">1px</font> <font color="#C2ACD3">solid</font> <font color="#F2B464">#f9f9f9;</font>　⤑　<font color="#F0A0A0">線寬</font> <font color="#C2ACD3">樣式</font> <font color="#F2B464">顏色</font></div>
+<div style="padding-left:20px; border-bottom:1px dashed #d5d5d5; margin:0 10px; line-height:2;">
+<font color="#C2ACD3">solid</font> 實線　　<font color="#C2ACD3">dotted</font> 點線　　
+<font color="#C2ACD3">dashed</font> 虛線　 <font color="#C2ACD3">double</font> 雙線</div><p>
+
+<label><input type="checkbox" style="display:none;" onclick="content11.style.display = this.checked ? 'block' : 'none'">
+✏️CSS 8位元透明度色碼一覽:</label>
+  <div id="content11" style="display:none; text-align:center;">　　Alpha 16進位 | 範例 深灰#555555<br>  
+F2 (透明度95%) ⤍ #555555F2<br> 
+E6 (透明度90%) ⤍ #555555E6<br>     
+CC (透明度80%) ⤍ #555555CC<br>     
+B3 (透明度70%) ⤍ #555555B3<br>     
+99 (透明度60%) ⤍ #55555599<br>     
+80 (透明度50%) ⤍ #55555580<br>     
+66 (透明度40%) ⤍ #55555566<br>     
+4D (透明度30%) ⤍ #5555554D<br>     
+33 (透明度20%) ⤍ #55555533<br>     
+1A (透明度10%) ⤍ #5555551A</div></section>
+
+
+
+
+ <section id="1f" data-group="1">
+      <h2>訪客簽寫留言區美化與橫幅廣告隱藏</h2>
+          <label><input type="checkbox" style="display:none;" onclick="content12.style.display = this.checked ? 'block' : 'none'">
+將下方程式碼貼於：<span class="tag tag-pink">CSS</span>。　　範例</label>
+  <div id="content12" style="display:none; text-align:center;"><p><img src="enews_pic/1119.png" width="450px"></div>
+      <pre><code class="hljs">/* 簽寫留言白邊框圖 */
+td[background*="images.kikia.net"] {
+  background-image: url("https://miaoni.neocities.org/gb/white.png") ;
+  background-repeat: repeat;   /* 鋪滿 */
+}
+
+/*  簽寫留言內背景色 */
+table[border="0"][cellspacing="0"][cellpadding="1"][bgcolor="f9f9f9"] {
+   background-color: #ffffff;
+}
+
+/* 針對特定欄位隱藏 */
+table[border="0"][cellspacing="0"][cellpadding="1"][bgcolor="f9f9f9"] td:has(select[name="sex"]),
+table[border="0"][cellspacing="0"][cellpadding="1"][bgcolor="f9f9f9"] tr:has(input[name="user"]),
+table[border="0"][cellspacing="0"][cellpadding="1"][bgcolor="f9f9f9"] tr:has(select[name="color"]),
+table[border="0"][cellspacing="0"][cellpadding="1"][bgcolor="f9f9f9"] tr:has(input[name="yahoo"]),
+table[border="0"][cellspacing="0"][cellpadding="1"][bgcolor="f9f9f9"] tr:has(input[name="icq"]),
+table[border="0"][cellspacing="0"][cellpadding="1"][bgcolor="f9f9f9"] td:has(select[name="pic"]) {
+  display: none !important;
+}
+
+/* 隱藏表情預覽 */
+td[colspan="3"][align="center"][valign="bottom"][height="50"] {
+  display: none;
+}
+
+/* 隱藏 Google Adsense 廣告框 */
+ins.adsbygoogle {
+  display: none !important;
+}
+
+/* 隱藏 asTrack.js 可能生成的 iframe 廣告 */
+iframe[src*="astrack.js"],
+iframe[src*="kikia.net"] {
+  display: none !important;
+}
+</code></pre>
+
+ ✏️備註<br>
+      <div style="padding-left:20px; border-bottom:1px dashed #d5d5d5; margin:0 10px; line-height:2;">
+簽寫留言區預設的黑線邊框為8張gif圖組成,此版美化是用一張白色圖檔<a href="gb/white.png" target="_blank">◻️</a></div>
+<div style="padding-left:20px; border-bottom:1px dashed #d5d5d5; margin:0 10px; line-height:2;">
+替換達到無邊線的白景效果。亦可隨個人版面設計替換其他顏色圖檔。</div></section>
+
+
+
+
+ <section id="1g" data-group="1">
+      <h2>去除留言IP隱藏符號</h2>
+          <label><input type="checkbox" style="display:none;" onclick="content13.style.display = this.checked ? 'block' : 'none'">
+將下方程式碼貼於：<span class="tag tag-pink">版面配置</span> > <span class="tag tag-pink">留言板下方</span> 框內末端。　　範例</label>
+  <div id="content13" style="display:none; text-align:center;"><p><img src="enews_pic/1116.png" width="350px"></div>
+      <pre><code class="hljs">&lt;!-- 去除IP符號 --&gt;
+&lt;script&gt;
+function hideAllIPPatterns() {
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+
+  while (walker.nextNode()) {
+    const node = walker.currentNode;
+    const text = node.nodeValue;
+
+    // 檢查是否含有 IP 樣式
+    if (text.includes('---') && /\*.*\*/.test(text)) {
+      // 僅保留日期之前的文字
+      const cleaned = text.split('---')[0].trim();
+      node.nodeValue = cleaned;
+    }
+  }
+}
+
+// 初次執行
+hideAllIPPatterns();
+
+// 防止留言載入延遲
+let counter = 0;
+const checkTimer = setInterval(() => {
+  hideAllIPPatterns();
+  counter++;
+  if (counter > 20) clearInterval(checkTimer);
+}, 500);
+&lt;/script&gt;</code></pre></section>
+
+
+
+
+
+ <section id="1h" data-group="1">
+      <h2>留言表格兩側蕾絲背景裝飾</h2>
+          <label><input type="checkbox" style="display:none;" onclick="content14.style.display = this.checked ? 'block' : 'none'">
+將下方語法貼於：<span class="tag tag-pink">CSS</span>。　　範例</label>
+  <div id="content14" style="display:none; text-align:center;"><p><img src="https://miaoni.neocities.org/enews_pic/1118.png" width="470px"></div>
+      <pre><code class="hljs">/* 蕾絲背景裝飾 */
+.lace-wrapper {
+  background: 
+    url("左側圖") repeat-y left top,
+    url("右側圖") repeat-y right top;
+  background-size: 120px auto;  /* 自訂圖縮放大小 */
+  max-width: 600px;   
+  margin: 0 auto;
+  padding: 0 87.5px;           /* 依照板寬度調整左右間距 */
+  box-sizing: border-box;
+}
+
+/* 中心內容 */
+.content {
+  background: white;    /* 中心底色 */
+  margin: 0px auto;     /* 置中 */
+  border-radius: 12px;  /* 圓角度 */
+}
+</code></pre>
+
+將下方html語法貼於：<span class="tag tag-pink">版面配置</span> > <span class="tag tag-pink">留言板上方</span>。
+<pre><code class="hljs">&lt;div class="lace-wrapper"&gt;
+&lt;div class="content"&gt;
+</code></pre>
+
+      <div style="padding-left:20px; border-bottom:1px dashed #d5d5d5; margin:0 10px; line-height:2;">
+⚠️註: html語法務必貼在版面配置上方所有編輯語法前面 (包覆留言上方</div>
+      <div style="padding-left:20px; border-bottom:1px dashed #d5d5d5; margin:0 10px; line-height:2;">
+內容) 因為要延伸到底下所有後端留言內容，故這邊沒加上/div結尾。</div>
+</section>
+
+
+
+
+
+
+<section id="2">
+      <h2>標記文字畫線效果</h2>
+          範例：<span class="mark yellow">黃色漸層畫線效果</span>　<span class="mark green">綠色畫中線效果</span>　<span class="mark red">紅色畫底線效果</span><p>
+          css
+      <pre><code class="hljs">/* 標記漸層黃線 */
+.mark.yellow {
+   background: linear-gradient(
+   transparent 40%,
+   rgba(255,255,255,0) 40%, 
+   #FFE174 90%, /* 黃色色碼 */
+   transparent 95%
+   padding: 2px 1px;
+   color: #999999; /* 文字顏色 */
+}
+/* 標記綠中線 */
+.mark.green {
+	 background:linear-gradient(transparent 40%,rgba(255,255,255,0) 40%, #CCFF90 50%,transparent 70%);	
+   padding: 2px 1px;
+   color: #999999;
+}
+/* 標記紅底線 */  
+.mark.red {
+	 border-bottom: 3px solid #EC7A8E;
+	 background: none;
+	 margin: 0 -2px;
+	 padding: 0 2px;
+	 color: #999999;
+  }
+      </code></pre>
+          html
+     <pre><code class="hljs">&lt;span class="mark yellow"&gt;黃色漸層畫線效果&lt;/span&gt;
+&lt;span class="mark green"&gt;綠色畫中線效果&lt;/span&gt;
+&lt;span class="mark red"&gt;紅色畫底線效果&lt;/span&gt;</code></pre></section>
+
+
+
+<section id="3">
+      <h2>線性漸層背景</h2>
+      範例：<div style="background: linear-gradient(to right,#e8e8e800,#e8e8e8aa,#e8e8e800);padding: 2px 0;text-align: center;letter-spacing: 2px;">可用於標題的線性漸層效果</div><p>
+      css
+      <pre><code class="hljs">/* 線性漸層背景 */
+.title-bar {
+   background: linear-gradient(
+   to right,
+   #e8e8e800,
+   #e8e8e8aa,
+   #e8e8e800
+  );
+  padding: 2px 0;
+  text-align: center;
+  letter-spacing: 2px;
+}
+      </code></pre>
+      ✏️色碼說明<br>
+  <div style="padding-left:20px; border-bottom:1px dashed #d5d5d5; margin:0 10px; line-height:2;">
+　　　#e8e8e8aa 最後兩位 aa 是透明度（十六進位）。</div><div style="padding-left:20px; border-bottom:1px dashed #d5d5d5; margin:0 10px; line-height:2;">　　　00 = 完全透明　aa ≈ 半透明</div><p>
+      
+      html
+      <pre><code class="hljs">&lt;div class="title-bar"&gt;文字內容&lt;/div&gt; 
+</code></pre>
+</section>
+ 
+ 
+ 
+    <section id="4">
+      <h2>YOUTUBE音樂播放按鈕</h2>
+      範例：如網頁右側粉色播放音樂按鈕<br>
+      若用於留言板請將JavaScript貼於：<span class="tag tag-pink">版面配置</span> > <span class="tag tag-pink">留言板下方</span><p>
+      html
+      <pre><code class="hljs">&lt;!-- 播放音樂按鈕 --&gt;
+&lt;div class="music-button" onclick="toggleMusic()" style="width:100px;height:66px;background-image:url('圖檔網址');background-size:cover;cursor:pointer;"&gt;&lt;/div&gt; 
+&lt;!-- 隱藏的音樂播放器 --&gt;
+&lt;iframe id="ytplayer" type="text/html" width="0" height="0" src="" frameborder="0" allow="autoplay" allowfullscreen&gt;&lt;/iframe&gt;
+</code></pre><p>
+      
+      JavaScript 
+      <pre><code class="hljs">&lt;!-- 播放Youtube音樂JS --&gt;
+&lt;script&gt;
+let isPlaying = false;
+let videoURL = "YouTube網址";
+function getYouTubeID(url) {
+  const regExp = /^.*(youtu\.be\/|v=|\/embed\/|\/v\/)([^#&?]*).*/;
+  const match = url.match(regExp);
+  return (match && match[2].length === 11) ? match[2] : null;
+}
+
+function toggleMusic() {
+  const player = document.getElementById("ytplayer");
+  const videoID = getYouTubeID(videoURL);
+
+  if (!videoID) {
+    console.error("❌ 無效的 YouTube 網址");
+    return;
+  }
+
+  if (!isPlaying) {
+    player.src = `https://www.youtube.com/embed/${videoID}?autoplay=1&mute=0&loop=1&playlist=${videoID}&controls=0&modestbranding=1`;
+    isPlaying = true;
+  } else {
+    player.src = "";
+    isPlaying = false;
+  }
+}
+ &lt;/script&gt;</code></pre></section>
+ 
+ 
+ <section id="5">
+      <h2>圖檔按鈕+可移動小彈窗</h2>
+      <p>小彈窗可作為公告、收納小物件用。範例見留言板下方的 <img src="enews_pic/724.png" width="20px"> 表情包按鈕</p>
+          css
+      <pre><code class="hljs">/* 按鈕圖效果 */
+.popup-trigger {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.popup-trigger:hover {
+  animation: cute-bounce 0.6s ease;
+  transform: scale(1.2) rotate(10deg);
+}
+
+ /* 彈窗外框 */
+.popup {
+  position: fixed;
+  top: 200px;
+  left: 200px;
+  width: 280px;
+  display: none;
+  border: 3px solid #FFCAD3;
+  border-radius: 20px;
+  overflow: hidden;
+  z-index: 9999;
+  font-family: "Microsoft JhengHei", "Arial Rounded MT Bold", sans-serif;
+  animation: popupBounce 0.4s ease;
+}
+
+/* 彈出動畫 */
+@keyframes popupBounce {
+  0% { transform: scale(0.7); opacity: 0; }
+  60% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+/* 標題列 */
+.popup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: #ffe4e9;
+  border-radius: 17px 17px 0 0;
+  cursor: move;
+}
+
+/* 標題文字 */
+.popup-title {
+  letter-spacing: 3px;
+  font-size: 13px;
+  color: #999;
+  font-weight: bold;
+}
+
+/* 關閉按鈕 */
+.popup-close {
+  background: #ffb6c1;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 22px;
+  color: white;
+  transition: background 0.2s;
+}
+
+.popup-close:hover {
+  background: #FFCCD3;
+  transform: scale(1.2) rotate(10deg);
+}
+
+/* 內容 */
+.popup-inner {
+  padding: 15px;
+  text-align: center;
+  font-size: 13px;
+}
+      </code></pre>
+          html
+     <pre><code class="hljs">&lt;img src="按鈕圖檔" class="popup-trigger" onclick="showPopup()" alt="文字說明" style="width: 圖大小px;"&gt;
+<!-- 彈出框 -->
+&lt;div class="popup" id="popupBox"&gt;
+ &lt;div class="popup-header" id="dragHandle"&gt;
+  &lt;span class="popup-title"&gt;標題&lt;/span&gt;
+   &lt;button class="popup-close" onclick="hidePopup()"&gt;×&lt;/button&gt;
+  &lt;/div&gt;
+ &lt;div class="popup-inner"&gt;內容&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+    JavaScript
+     <pre><code class="hljs">&lt;script&gt;
+const popup = document.getElementById("popupBox");
+const dragHandle = document.getElementById("dragHandle");
+
+let isDragging = false;
+let offsetX = 0;
+let offsetY = 0;
+
+// 開啟/關閉函式 
+function showPopup() { 
+  popup.style.display = "block"; 
+} 
+function hidePopup() {
+  popup.style.display = "none"; 
+}
+
+// 拖曳功能
+dragHandle.addEventListener("mousedown", (e) => {
+  isDragging = true;
+  const rect = popup.getBoundingClientRect();
+  offsetX = e.clientX - rect.left;
+  offsetY = e.clientY - rect.top;
+  document.body.style.userSelect = "none"; // 防止選文字
+});
+
+document.addEventListener("mousemove", (e) => {
+  if (isDragging) {
+    popup.style.left = `${e.clientX - offsetX}px`;
+    popup.style.top = `${e.clientY - offsetY}px`;
+  }
+});
+
+document.addEventListener("mouseup", () => {
+  isDragging = false;
+  document.body.style.userSelect = ""; // 還原選取
+});
+&lt;/script&gt;</code></pre></section>
+  
+  </div>
+  
+
+ 
+  
+  <!-- 浮動便條紙 -->
+  <div class="note">
+    <h3>前言</h3>
+    <p>
+    在這裡分享一些我使用到的 HTML、CSS、JavaScript 語法。<br> 方便讓自己之後更快找到需要的程式碼，同時也能幫助到正在學習用語法編輯美化留言板的朋友們。<br>希望在語法的世界裡大家越得心應手，玩出成就、玩得開心。<img src="https://cbox.im/i/UFLDp.gif"><p>❗美化留言板原設定的語法<span class="mark yellow">僅針對下課時間</span>版本的留言板修改.ᐟ</p>
+    💡如果你也在找免費的託管網存空間，分享給你我使用的平台<br> 　⤿ <a href="https://neocities.org/" target="_blank">Neocities</a> 、 <a href="https://nekoweb.org/" target="_blank">Nekoweb</a>
+  </div>
+
+
+
+<!-- highlight.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll("pre code").forEach(code => {
+    const wrapper = document.createElement("div");
+    wrapper.className = "pre-copy-wrapper";
+
+    const pre = code.parentElement;
+    pre.parentNode.insertBefore(wrapper, pre);
+    wrapper.appendChild(pre);
+
+    const btn = document.createElement("button");
+    btn.className = "copy-btn";
+    btn.textContent = "Copy";
+
+    btn.addEventListener("click", () => {
+      navigator.clipboard.writeText(code.innerText).then(() => {
+        btn.textContent = "Copied!";
+        setTimeout(() => { btn.textContent = "Copy"; }, 1200);
+      });
+    });
+
+    wrapper.appendChild(btn);
+  });
+});
+</script>
+
+<script>hljs.highlightAll();</script>
+
+<script>
+const note = document.querySelector(".note");
+
+// 初次載入檢查 hash
+function updateUI() {
+  const hash = location.hash.slice(1);
+  if(!hash) return;
+
+  // 收起所有 section
+  document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+
+  // 展開同組 section 或單個 section
+  const groupSections = document.querySelectorAll(`section[data-group="${hash}"]`);
+  let firstTarget = null;
+  if(groupSections.length){
+    groupSections.forEach((sec,i) => {
+      sec.classList.add('active');
+      if(i===0) firstTarget = sec;
+    });
+  } else {
+    const single = document.getElementById(hash);
+    if(single) {
+      single.classList.add('active');
+      firstTarget = single;
+    }
+  }
+
+  // 捲動到精準位置（可自訂偏移量）
+  if(firstTarget){
+    const offset = -20; // 🔧 上方預留距離（改這個數字調整，負數更往上，正數更往下）
+    const top = firstTarget.getBoundingClientRect().top + window.scrollY + offset;
+    window.scrollTo({ top, behavior: "smooth" });
+  }
+
+  // 收起 note
+  note.style.opacity="0";
+  note.style.pointerEvents="none";
+  note.style.transform="translate(-50%, -60%)";
+
+  // sidemenu 高亮
+  document.querySelectorAll(".sidemenu a").forEach(link => {
+    link.classList.toggle("active", link.getAttribute("href") === '#' + hash);
+  });
+}
+
+// 初次載入
+updateUI();
+
+// 錨點點擊事件
+document.querySelectorAll('.sidemenu a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', e => {
+    e.preventDefault();
+    const groupId = anchor.getAttribute('href').slice(1);
+
+    // 收起所有 section
+    document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+
+    // 展開同組 section 或單個 section
+    const groupSections = document.querySelectorAll(`section[data-group="${groupId}"]`);
+    let firstTarget = null;
+    if(groupSections.length){
+      groupSections.forEach((sec,i) => {
+        sec.classList.add('active');
+        if(i===0) firstTarget = sec;
+      });
+    } else {
+      const single = document.getElementById(groupId);
+      if(single) {
+        single.classList.add('active');
+        firstTarget = single;
+      }
+    }
+
+    // 更新 hash
+    history.replaceState(null, '', '#' + groupId);
+
+    // 捲動到精準位置
+    if(firstTarget){
+      const offset = -10; // 🔧 上方預留距離
+      const top = firstTarget.getBoundingClientRect().top + window.scrollY + offset;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
+
+    // 收起 note
+    note.style.opacity="0";
+    note.style.pointerEvents="none";
+    note.style.transform="translate(-50%, -60%)";
+
+    // sidemenu 高亮
+    document.querySelectorAll(".sidemenu a").forEach(link => {
+      link.classList.toggle("active", link.getAttribute("href") === '#' + groupId);
+    });
+  });
+});
+</script>
+
+
+
+
+
+  
   <script src="script.js"></script>
 </body>
 </html>
